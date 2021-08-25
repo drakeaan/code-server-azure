@@ -24,7 +24,7 @@ class Redirect(BaseHTTPRequestHandler):
     try:
         url = re.search("(?P<url>https?://[^\s]+)", last_line).group("url")
     except:
-        url = "https://github.com/bpmct/code-server-azure#troubleshooting"
+        url = "https://github.com/drakeaan/code-server-azure#troubleshooting"
     self.send_response(302)
     self.send_header('Location', url)
     self.end_headers()

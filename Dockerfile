@@ -18,7 +18,8 @@ COPY miniRedirectServer.py /home/coder/miniRedirectServer.py
 USER root
 # Add support for SSHing into the app (https://docs.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux#enable-ssh)
 RUN sudo apt-get update && apt-get install -y openssh-server \
-     && echo "root:Docker!" | chpasswd 
+     && echo "root:Docker!" | chpasswd
+
 COPY sshd_config /etc/ssh/
 EXPOSE 80 2222
 
