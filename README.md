@@ -12,7 +12,7 @@ Deploying code-server on Azure App Service. Can use [--link](https://github.com/
 ## How to run
 
 1. Create a [new web app](https://portal.azure.com/#create/Microsoft.WebSite) from Azure's portal
-1. Deploy this container from the Docker Hub: `bencdr/code-server-azure`
+1. Deploy this container from the Docker Hub: `drakeaan/code-server-azure`
 1. Track the status of your deployment via the "Deployment Center"
 1. Hit "Browse" on the app overview page to visit your code-server workspace
 
