@@ -22,7 +22,8 @@ After deploying, you can configure with the following settings (Settings > Confi
 
 - `LINK_NAME`: A custom name used for code-server --link (ex. `[linkname]-githubusername.cdr.co`)
 - `PASSWORD`: Password to log into code-server. Adding this will disable the use of --link
-- `GIT_REPO`: A public git repo to clone (see [#3](https://github.com/bpmct/code-server-azure/issues/3))
+- `GIT_REPO`: A public or private Azure Devops git repo to clone (see [#3](https://github.com/bpmct/code-server-azure/issues/3))
+- `GIT_CREDENTIALS`: If using a private Azure DevOps repo, select clone and then ***Generate Git Credentials***. The variable needs to be in the format **username:password** provided to you when credentials are generated.
 - `START_DIR`: The directory code-server opens (default: `/home/coder/project`)
 - `DISABLE_SSH`: Disable SSH access via the Azure portal, saves resources
 
