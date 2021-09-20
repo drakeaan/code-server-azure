@@ -18,6 +18,9 @@ else
         credentialString="@"
         REMOTE_URL="https://${GIT_CREDENTIALS}${repoString/https:\/\//$credentialString}"
         git clone $REMOTE_URL $START_DIR;
+
+        # Delete origin credentials
+        git remote rm origin
     fi
 fi
 
