@@ -1,8 +1,9 @@
 {
   "workbench.colorTheme": "Default Dark+",
   "git.postCommitCommand": "sync",
-  "git.enableSmartCommit": true,
+  "git.enableSmartCommit": false,
   "git.confirmSync": false,
-  "git.autofetch": true,
-  "workbench.startupEditor": "readme"
+  "git.autofetch": false,
+  "workbench.startupEditor": "readme",
+  "redhat.telemetry.enabled": false
 }

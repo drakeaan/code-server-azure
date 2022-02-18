@@ -19,6 +19,8 @@ else
         REMOTE_URL="https://${GIT_CREDENTIALS}${repoString/https:\/\//$credentialString}"
         git clone $REMOTE_URL $START_DIR;
 
+        sleep 10
+
         echo "Removing remote url"
         # Delete origin credentials
         git remote rm origin
@@ -43,3 +45,7 @@ else
     # Run code-server on port 80
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:80 $START_DIR 2>&1 | tee code-server-logs.txt
 fi
+
+code-server --install-extension hashicorp.terraform
+code-server --install-extension esbenp.prettier-vscode
+code-server --install-extension redhat.vscode-yaml
