@@ -3,6 +3,11 @@
 # Allow user to aupply a start dir, default to /home/coder/project
 START_DIR=${1:-/home/coder/project}
 
+if [ -d "/src" ]
+then
+    START_DIR=${1:-/src}
+fi
+
 # Clone the git repo, if was supplied
 if [ -z "${GIT_REPO}"  ]; then
     echo "\$GIT_REPO not specified"
@@ -49,3 +54,5 @@ fi
 code-server --install-extension hashicorp.terraform
 code-server --install-extension esbenp.prettier-vscode
 code-server --install-extension redhat.vscode-yaml
+code-server --install-extension ms-python.python
+code-server --install-extension lizebang.bash-extension-pack
