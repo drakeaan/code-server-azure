@@ -7,7 +7,7 @@ on:
       - 'README.md'
       - '**/*.md'
       - '**.md'
-  workflow_dispatch:
+  workflow_dispatch: {}
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
