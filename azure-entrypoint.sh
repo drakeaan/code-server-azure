@@ -27,7 +27,10 @@ else
 
         sleep 10
 
-        git config --global --add safe.directory /$START_DIR
+        if [ -d "/src" ]
+        then
+            git config --global --add safe.directory /$START_DIR
+        fi
 
         echo "Removing remote url"
         # Delete origin credentials
@@ -61,7 +64,10 @@ code-server --install-extension ms-python.python
 code-server --install-extension lizebang.bash-extension-pack
 code-server --install-extension ms-vscode.powershell
 
-git config --global --add safe.directory /$START_DIR
+if [ -d "/src" ]
+then
+    git config --global --add safe.directory /$START_DIR
+fi
 
 echo "Removing remote url"
 # Delete origin credentials
