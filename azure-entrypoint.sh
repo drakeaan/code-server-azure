@@ -2,10 +2,11 @@
 
 # Allow user to aupply a start dir, default to /home/coder/project
 START_DIR=${1:-/home/coder/project}
+DIR_DATE=${date +%F}
 
 if [ -d "/src" ]
 then
-    START_DIR=${1:-/src}
+    START_DIR=${1:-/src/${DIR_DATE}}
 fi
 
 # Clone the git repo, if was supplied
@@ -25,6 +26,8 @@ else
         git clone $REMOTE_URL $START_DIR;
 
         sleep 10
+
+        git config --global --add safe.directory /$START_DIR
 
         echo "Removing remote url"
         # Delete origin credentials
@@ -56,3 +59,10 @@ code-server --install-extension esbenp.prettier-vscode
 code-server --install-extension redhat.vscode-yaml
 code-server --install-extension ms-python.python
 code-server --install-extension lizebang.bash-extension-pack
+code-server --install-extension ms-vscode.powershell
+
+git config --global --add safe.directory /$START_DIR
+
+echo "Removing remote url"
+# Delete origin credentials
+git remote rm origin

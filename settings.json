@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Dark Modern",
   "git.postCommitCommand": "sync",
   "git.enableSmartCommit": false,
   "git.confirmSync": false,
