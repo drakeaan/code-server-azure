@@ -26,9 +26,10 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
      && sudo dpkg -i packages-microsoft-prod.deb \
      && sudo apt-get update \
-     && sudo apt-get install -y powershell \
-     && sudo apt-get install nodejs \
-     && sudo apt-get install npm
+     && sudo apt-get install -y powershell
+     
+RUN sudo apt-get install -y nodejs
+RUN sudo apt-get install -y npm
 
 # If we ever want to install Azure Powershell cmdlets.
 # RUN pwsh /root/.local/InstallAz.ps1
