@@ -31,6 +31,14 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
 RUN sudo apt-get install -y nodejs
 RUN sudo apt-get install -y npm
 
+# Install Google Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+     && sudo dpkg -i google-chrome-stable_current_amd64.deb \
+     && sudo apt-get install -f -y
+
+# Install Salesforce CLI
+RUN npm install sfdx-cli --global
+
 # If we ever want to install Azure Powershell cmdlets.
 # RUN pwsh /root/.local/InstallAz.ps1
 
