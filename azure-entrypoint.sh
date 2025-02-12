@@ -63,6 +63,8 @@ code-server --install-extension redhat.vscode-yaml
 code-server --install-extension ms-python.python
 code-server --install-extension lizebang.bash-extension-pack
 code-server --install-extension ms-vscode.powershell
+code-server --install-extension salesforce.salesforcedx-vscode
+code-server --install-extension financialforce.lana
 
 if [ -d "/src" ]
 then
