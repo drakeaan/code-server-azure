@@ -7,7 +7,10 @@ on:
       - 'README.md'
       - '**/*.md'
       - '**.md'
-  workflow_dispatch: {}
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -31,7 +34,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: drakeaan/code-server-azure:latest,drakeaan/code-server-azure:4.16.2
+          tags: drakeaan/code-server-azure:latest,drakeaan/code-server-azure:4.96.4
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
