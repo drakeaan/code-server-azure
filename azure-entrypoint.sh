@@ -2,7 +2,7 @@
 
 # Allow user to aupply a start dir, default to /home/coder/project
 START_DIR=${1:-/home/coder/project}
-DIR_DATE=${date +%F}
+DIR_DATE=$(date +%F)
 
 if [ -d "/src" ]
 then
@@ -31,10 +31,6 @@ else
         then
             git config --global --add safe.directory /$START_DIR
         fi
-
-        echo "Removing remote url"
-        # Delete origin credentials
-        git remote rm origin
     fi
 fi
 
@@ -57,6 +53,7 @@ else
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:80 $START_DIR 2>&1 | tee code-server-logs.txt
 fi
 
+echo "Installing VS Code extensions"
 code-server --install-extension hashicorp.terraform
 code-server --install-extension esbenp.prettier-vscode
 code-server --install-extension redhat.vscode-yaml
@@ -68,6 +65,7 @@ code-server --install-extension financialforce.lana
 
 if [ -d "/src" ]
 then
+    echo "setting safe directory"
     git config --global --add safe.directory /$START_DIR
 fi
 
