@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: drakeaan/code-server-azure:latest,drakeaan/code-server-azure:4.16.1
+          tags: drakeaan/code-server-azure:latest,drakeaan/code-server-azure:4.16.2
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
