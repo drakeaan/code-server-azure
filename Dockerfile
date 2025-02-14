@@ -21,7 +21,10 @@ USER root
 # Add support for SSHing into the app (https://docs.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux#enable-ssh)
 RUN sudo apt-get update && apt-get install wget && apt-get install -y openssh-server \
      && chown -R root:root /root \
-     && echo "root:Docker!" | chpasswd
+     && echo "root:Docker!" | chpasswd \
+     && chown -R root:root /temp \
+     && chown -R coder:coder /home/coder \
+     && chown -R root:root /root
 
 # Install Azure CLI and Powershell Core
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -46,9 +49,6 @@ RUN npm install sfdx-cli --global
 COPY sshd_config /etc/ssh/
 EXPOSE 80 2222
 
-# Fix permissions
-RUN chown -R coder:coder /home/coder \
-     && chown -R root:root /root
 
 # Fix SSH bug
 RUN mkdir -p /var/run/sshd
