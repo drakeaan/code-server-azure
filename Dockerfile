@@ -49,7 +49,6 @@ RUN npm install sfdx-cli --global
 COPY sshd_config /etc/ssh/
 EXPOSE 80 2222
 
-
 # Fix SSH bug
 RUN mkdir -p /var/run/sshd
 RUN mkdir /home/coder/project
