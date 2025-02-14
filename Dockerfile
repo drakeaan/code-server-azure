@@ -17,8 +17,10 @@ ENV SHELL=/bin/bash
 ENV PORT=80
 
 USER root
+
 # Add support for SSHing into the app (https://docs.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux#enable-ssh)
 RUN sudo apt-get update && apt-get install wget && apt-get install -y openssh-server \
+     && chown -R root:root /root \
      && echo "root:Docker!" | chpasswd
 
 # Install Azure CLI and Powershell Core
@@ -45,7 +47,8 @@ COPY sshd_config /etc/ssh/
 EXPOSE 80 2222
 
 # Fix permissions
-RUN chown -R coder:coder /home/coder
+RUN chown -R coder:coder /home/coder \
+     && chown -R root:root /root
 
 # Fix SSH bug
 RUN mkdir -p /var/run/sshd

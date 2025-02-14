@@ -55,6 +55,9 @@ fi
 if [[ -z "${PASSWORD}" ]]; then
     # Run code-server with the default entrypoint and --link
     echo "\$PASSWORD not specified. Starting code-server --link..."
+
+    git remote rm origin
+    
     /usr/bin/entrypoint.sh --link ${LINK_NAME:-azure} $START_DIR 2>&1 | tee code-server-logs.txt &
     # Run a mini redirect server on port 80 to take the user to the --link URL (keeps Azure alive)
     sleep 5 && /home/coder/miniRedirectServer.py 80 2>&1 | tee redirect-logs.txt
